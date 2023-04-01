@@ -25,6 +25,9 @@ const MessageSchema = new Schema<Message>(
     }
 );
 
+MessageSchema.index({ name: 1 });
+MessageSchema.index({ mail: 1 });
+
 const MessageModel = model('message', MessageSchema);
 
 export default MessageModel;

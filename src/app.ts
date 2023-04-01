@@ -18,7 +18,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use('/api', router);
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   const error = createError(404, "This is not the page you're looking for...");
   next(error);
 });
@@ -26,6 +26,6 @@ app.use(function (req, res, next) {
 // error handler
 app.use(errorResponser);
 
-db().then(() => console.log(`Connected to DB ${SERVER_NAME}`));
+db().then(() => console.log(`Connected to ${SERVER_NAME} DB`));
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
